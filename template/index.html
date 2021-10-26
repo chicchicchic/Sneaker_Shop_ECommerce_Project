@@ -9,8 +9,12 @@
 </head>
 <body>
     <div class="grid-container">
+        <!-- Header Section -->
         <header class="header">
             <div class="brand">
+                <button onclick="openMenu()">
+                    &#9776;
+                </button>
                 <a href="./index.html">Sneaker Shop</a>
             </div>
             <div class="header-links">
@@ -19,6 +23,21 @@
             </div>
         </header>
 
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Shopping Categories</h3>
+            <button class="sidebar-close-button" onclick="closeMenu()">x</button>
+            <ul>
+                <li>
+                    <a href="index.html">Man</a>
+                </li>
+                <li>
+                    <a href="index.html">Woman</a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Content Section -->
         <main class="main">
             <div class="content">
                 <ul class="products">
@@ -81,9 +100,20 @@
             </div>
         </main>
 
+        <!-- Footer Section -->
         <footer class="footer">
             All right reserved.
         </footer>
     </div>
+
+    <!-- Javascript -->
+    <script>
+        function openMenu() {
+            document.querySelector(".sidebar").classList.add("open");
+        }
+        function closeMenu() {
+            document.querySelector(".sidebar").classList.remove("open");
+        }
+    </script>
 </body>
 </html>
