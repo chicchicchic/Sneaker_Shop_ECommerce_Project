@@ -1,6 +1,9 @@
 import React from 'react';
 import data from './data';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 import './App.css';
+import HomeScreen from './Screens/HomeScreen';
+import ProductScreen from './Screens/ProductScreen';
 
 function App() {
   const openMenu = () => {
@@ -11,13 +14,14 @@ function App() {
   }
 
   return (
+    <BrowserRouter>
     <div className="grid-container">
         <header className="header">
             <div className="brand">
                 <button onClick={openMenu}>
                     &#9776;
                 </button>
-                <a href="./index.html">Sneaker Shop</a>
+                <Link to="/" >Sneaker Shop</Link>
             </div>
             <div className="header-links">
                 <a href="cart.html">Cart</a>
@@ -40,6 +44,8 @@ function App() {
 
         <main className="main">
             <div className="content">
+                <Route path="/product/:id" component={ProductScreen} />
+                <Route path="/" exact={true} component={HomeScreen} />
                 <ul className="products">
                     {
                         data.products.map(product => 
@@ -63,6 +69,7 @@ function App() {
             All right reserved.
         </footer>
     </div>
+    </BrowserRouter>
   );
 }
 

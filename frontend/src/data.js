@@ -1,6 +1,7 @@
 export default {
     products: [
         {
+            _id: '1',
             name: 'Nike 1',
             category: 'Man',
             image: '/images/s1.jpg',
@@ -10,6 +11,7 @@ export default {
             numReviews: 9
         },
         {
+            _id: '2',
             name: 'Nike 2',
             category: 'Man',
             image: '/images/s1.jpg',
@@ -19,6 +21,7 @@ export default {
             numReviews: 4
         },
         {
+            _id: '3',
             name: 'Nike 3',
             category: 'Woman',
             image: '/images/s1.jpg',
@@ -28,6 +31,7 @@ export default {
             numReviews: 10
         },
         {
+            _id: '4',
             name: 'Nike 4',
             category: 'Man',
             image: '/images/s1.jpg',
@@ -37,6 +41,7 @@ export default {
             numReviews: 5
         },
         {
+            _id: '5',
             name: 'Nike 5',
             category: 'Woman',
             image: '/images/s1.jpg',
@@ -46,6 +51,7 @@ export default {
             numReviews: 1
         },
         {
+            _id: '6',
             name: 'Nike 6',
             category: 'Woman',
             image: '/images/s1.jpg',
@@ -55,6 +61,7 @@ export default {
             numReviews: 3
         },
         {
+            _id: '7',
             name: 'Nike 7',
             category: 'Man',
             image: '/images/s1.jpg',
@@ -64,6 +71,7 @@ export default {
             numReviews: 9
         },
         {
+            _id: '8',
             name: 'Nike 8',
             category: 'Woman',
             image: '/images/s1.jpg',
@@ -71,6 +79,16 @@ export default {
             brand: 'Nike',
             rating: 2.5,
             numReviews: 8
+        },
+        {
+            _id: '9',
+            name: 'Nike 9',
+            category: 'Woman',
+            image: '/images/s1.jpg',
+            price: 36,
+            brand: 'Nike',
+            rating: 2.0,
+            numReviews: 4
         },
     
 ]
