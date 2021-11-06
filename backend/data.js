@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     products: [
         {
             _id: '1',
@@ -91,5 +91,5 @@ module.exports = {
             numReviews: 4
         },
     
-]
+    ]
 }
