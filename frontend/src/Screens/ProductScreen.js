@@ -8,11 +8,11 @@ function ProductScreen (props) {
     
     const productDetails = useSelector(state => state.productDetails);
     const { product, loading, error } = productDetails;
-    const dispatch = useDispatch;
+    const dispatch = useDispatch();
 
 
     useEffect(() => {
-        dispatch(detailsProduct());
+        dispatch(detailsProduct(props.match.params.id));
         return () => {
             //
         };
@@ -23,9 +23,8 @@ function ProductScreen (props) {
         <div className="back-to-result">
             <Link to="/">Back to result</Link>
         </div>
-
-        {loading? <div>Loading...</div>:
-        error? <div>{error}</div>:
+        {loading ? <div>Loading...</div>:
+        error ? <div>{error}</div>:
         (
             <div className="details">
                 <div className="details-image">

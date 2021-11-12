@@ -12,10 +12,10 @@ const app = express();
 // })
 
 app.get("/api/products/:id", (req, res) => {
-    const productID = req.params.id;
-    const product = data.products.find(x => x.__id === productID);
-    if (product)
-        res.send(products);
+    const productId = req.params.id;
+    const product = data.products.find(x=>x._id === productId);
+    if(product)
+        res.send(product);
     else
         res.status(404).send({ msg: "Product Not Found." })
 });
