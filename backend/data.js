@@ -8,7 +8,8 @@ export default {
             price: 96,
             brand: 'Nike',
             rating: 3.5,
-            numReviews: 9
+            numReviews: 9,
+            countInStock: 0,
         },
         {
             _id: '2',
@@ -18,7 +19,8 @@ export default {
             price: 80,
             brand: 'Nike',
             rating: 4.5,
-            numReviews: 4
+            numReviews: 4,
+            countInStock: 9,
         },
         {
             _id: '3',
@@ -28,7 +30,8 @@ export default {
             price: 90,
             brand: 'Nike',
             rating: 2.5,
-            numReviews: 10
+            numReviews: 10,
+            countInStock: 15,
         },
         {
             _id: '4',
@@ -38,7 +41,8 @@ export default {
             price: 35,
             brand: 'Nike',
             rating: 5.0,
-            numReviews: 5
+            numReviews: 5,
+            countInStock: 3,
         },
         {
             _id: '5',
@@ -48,7 +52,8 @@ export default {
             price: 70,
             brand: 'Nike',
             rating: 4.5,
-            numReviews: 1
+            numReviews: 1,
+            countInStock: 7,
         },
         {
             _id: '6',
@@ -58,7 +63,8 @@ export default {
             price: 120,
             brand: 'Nike',
             rating: 4.0,
-            numReviews: 3
+            numReviews: 3,
+            countInStock: 9,
         },
         {
             _id: '7',
@@ -68,7 +74,8 @@ export default {
             price: 75,
             brand: 'Nike',
             rating: 3.5,
-            numReviews: 9
+            numReviews: 9,
+            countInStock: 2,
         },
         {
             _id: '8',
@@ -78,7 +85,8 @@ export default {
             price: 19,
             brand: 'Nike',
             rating: 2.5,
-            numReviews: 8
+            numReviews: 8,
+            countInStock: 4,
         },
         {
             _id: '9',
@@ -88,7 +96,8 @@ export default {
             price: 36,
             brand: 'Nike',
             rating: 2.0,
-            numReviews: 4
+            numReviews: 4,
+            countInStock: 3,
         },
     
     ]
