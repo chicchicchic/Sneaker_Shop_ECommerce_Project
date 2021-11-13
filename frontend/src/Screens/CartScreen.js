@@ -37,8 +37,10 @@ function CartScreen(props) {
                     </div>
                     :
                     cartItems.map(item => 
-                        <div>
-                            <img src={item.image} alt="product" />
+                        <li>
+                            <div className="cart-image">
+                                <img src={item.image} alt="product" />
+                            </div>
                             <div className="cart-name">
                                 <div>
                                     {item.name}
@@ -52,12 +54,12 @@ function CartScreen(props) {
                                     </select>
                                 </div>
                             </div>
-                            <div>
-                                {item.price}
+                            <div className="cart-price">
+                                ${item.price}
                             </div>
 
 
-                        </div>    
+                        </li>    
                     )
                 }
             </ul>
