@@ -98,7 +98,6 @@ export default {
             rating: 2.0,
             numReviews: 4,
             countInStock: 3,
-        },
-    
+        }
     ]
 }
