@@ -1,15 +1,14 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+// import Cookies from 'js-cookie';
 import { productListReducer, productDetailsReducer } from './reducers/productReducers';
 import { cartReducer } from './reducers/cartReducers';
 // Nếu muốn lưu với Cookie (Server Side)
-const Cookie = require('js-cookie');
+const Cookies = require('js-cookie');
+
 
 // Nếu muốn lưu với Cookie (Server Side)
-const cartItems = JSON.parse(Cookie.get('cartItems')) || [];
-
-// Nếu muốn lưu với Cookie (Server Side)
-const initialState = { cart: { cartItems } };
+const initialState = { cart: { cartItems: Cookies.get('cartItems')? JSON.parse(Cookies.get('cartItems')) : [] } };
 
 // Nếu muốn lưu với Local Storage (Client Side)
 // const initialState = { 

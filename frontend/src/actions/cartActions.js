@@ -3,7 +3,7 @@ import Axios from "axios";
 import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "../constants/cartConstants";
 
 // Nếu muốn lưu với Cookie (Server Side)
-const Cookie = require('js-cookie');
+const Cookies = require('js-cookie');
 
 
 const addToCart = (productId, quantity) => async (dispatch, getState) => {
@@ -22,7 +22,7 @@ const addToCart = (productId, quantity) => async (dispatch, getState) => {
 
         // Nếu muốn lưu với Cookie (Server Side)
         const { cart: { cartItems } } = getState();
-        Cookie.set("cartItems", JSON.stringify(cartItems));
+        Cookies.set("cartItems", JSON.stringify(cartItems));
 
         // Nếu muốn lưu với Local Storage (Client Side)
         // localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
@@ -37,7 +37,7 @@ const removeFromCart = (productId) => (dispatch, getState) => {
 
     // Nếu muốn lưu với Cookie (Server Side)
     const { cart: { cartItems } } = getState();
-    Cookie.set("cartItems", JSON.stringify(cartItems));
+    Cookies.set("cartItems", JSON.stringify(cartItems));
 
     // Nếu muốn lưu với Local Storage (Client Side)
     // localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
