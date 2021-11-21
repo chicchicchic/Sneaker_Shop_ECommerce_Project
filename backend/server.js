@@ -3,6 +3,15 @@
 
 import express from 'express';
 import data from './data';
+import dotenv from 'dotenv';
+import config from './config';
+
+
+dotenv.config();
+
+const mongodbUrl = config.MONGODB_URL;
+
+
 
 const app = express();
 
