@@ -3,11 +3,11 @@ import User from '../models/userModel';
 
 const router = express.Router();
 
-router.get('/createadmin', async (req, res) => {
+router.get("/createadmin", async (req, res) => {
     try {
         const user = new User({
             name: 'Khanh',
-            email: 'chicken481999@gmail.com',
+            email: 'chickenhello48@gmail.com',
             password: '5678',
             isAdmin: true
         });
@@ -16,6 +16,6 @@ router.get('/createadmin', async (req, res) => {
     } catch (error) {
         res.send({ message: error.message });
     }
-})
+});
 
 export default router;
