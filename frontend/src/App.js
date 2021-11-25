@@ -4,6 +4,7 @@ import './App.css';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
+import SigninScreen from './screens/SigninScreen';
 
 function App() {
   const openMenu = () => {
@@ -44,6 +45,7 @@ function App() {
 
         <main className="main">
             <div className="content">
+                <Route path="signin" component={SigninScreen} />
                 <Route path="/product/:id" component={ProductScreen} />
                 <Route path="/cart/:id?" component={CartScreen} />
                 <Route path="/" exact={true} component={HomeScreen} />
