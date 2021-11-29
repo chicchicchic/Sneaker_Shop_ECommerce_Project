@@ -28,6 +28,10 @@ function SigninScreen (props) {
         <form onSubmit={submitHandler}>
             <ul className="form-container">
                 <li>
+                    <h2>Signin</h2>
+                </li>
+
+                <li>
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}>
                     </input>
@@ -44,7 +48,7 @@ function SigninScreen (props) {
                     Do not have an account ?. Please register !
                 </li>
                 <li>
-                    <Link to="/register" className="button full-width">Create your account</Link>
+                    <Link to="/register" className="button secondary text-center">Create your account</Link>
                 </li>
             </ul>
         </form>
