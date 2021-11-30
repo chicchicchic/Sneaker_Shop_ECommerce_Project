@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 // import Cookies from 'js-cookie';
 import { productListReducer, productDetailsReducer } from './reducers/productReducers';
 import { cartReducer } from './reducers/cartReducers';
+import { userSigninReducer } from './reducers/userReducers';
 // Nếu muốn lưu với Cookie (Server Side)
 const Cookies = require('js-cookie');
 
@@ -19,7 +20,8 @@ const initialState = { cart: { cartItems: Cookies.get('cartItems')? JSON.parse(C
 const reducer = combineReducers({
     productList: productListReducer,
     productDetails: productDetailsReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    userSignin: userSigninReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; 
