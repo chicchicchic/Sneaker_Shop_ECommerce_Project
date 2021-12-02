@@ -11,7 +11,7 @@ router.post('/signin', async (req, res) => {
         email: req.body.email,
         password: req.body.password
     });
-    if(signinUser){
+    if (signinUser){
         res.send({
             _id: signinUser.id,
             name: signinUser.name,
@@ -30,7 +30,7 @@ router.get("/createadmin", async (req, res) => {
     try {
         const user = new User({
             name: 'Khanh',
-            email: 'chickenhello48@gmail.com',
+            email: 'chickenhello4848@gmail.com',
             password: '5678',
             isAdmin: true
         });
