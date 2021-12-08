@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 // import Cookies from 'js-cookie';
-import { productListReducer, productDetailsReducer } from './reducers/productReducers';
+import { productListReducer, productDetailsReducer, productSaveReducer } from './reducers/productReducers';
 import { cartReducer } from './reducers/cartReducers';
 import { userRegisterReducer, userSigninReducer } from './reducers/userReducers';
 // Nếu muốn lưu với Cookie (Server Side)
@@ -26,6 +26,7 @@ const reducer = combineReducers({
     cart: cartReducer,
     userSignin: userSigninReducer,
     userRegister: userRegisterReducer,
+    productSave: productSaveReducer,
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; 

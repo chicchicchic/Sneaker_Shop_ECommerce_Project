@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { signin } from '../actions/userActions';
+import { saveProduct } from '../actions/productActions';
 
 
 function ProductsScreen (props) {
@@ -13,15 +12,12 @@ function ProductsScreen (props) {
     const [category, setCategory] = useState('');
     const [countInStock, setCountInStock] = useState('');
     const [description, setDescription] = useState('');
-    const [rating, setRating] = useState('');
-    const [numReview, setNumReview] = useState('');
     const productSave = useSelector(state => state.userSignin);
     const { loading: loadingSave, success: successSave, error: errorSave } = productSave;
     const dispatch = useDispatch();
 
 
     useEffect(() => {
-        
 
         return () => {
             //
@@ -30,7 +26,7 @@ function ProductsScreen (props) {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(saveProduct({ name, price, image, brand, category, countInStock, description, rating, numReview }));
+        dispatch(saveProduct({ name, price, image, brand, category, countInStock, description }));
     }
 
 
@@ -41,36 +37,32 @@ function ProductsScreen (props) {
                     <h2>Create Product</h2>
                 </li>
                 <li>
-                    {loading && <div>Loading...</div>}
-                    {error && <div>{error}</div>}
+                    {loadingSave && <div>Loading...</div>}
+                    {errorSave && <div>{errorSave}</div>}
                 </li>
                 <li>
                     <label htmlFor="name">Name</label>
                     <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
                 </li>
                 <li>
-                    <label htmlFor="name">Price</label>
-                    <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
+                    <label htmlFor="price">Price</label>
+                    <input type="text" name="price" id="price" onChange={(e) => setPrice(e.target.value)}></input>
                 </li>
                 <li>
-                    <label htmlFor="name">Image</label>
-                    <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
+                    <label htmlFor="image">Image</label>
+                    <input type="text" name="image" id="image" onChange={(e) => setImage(e.target.value)}></input>
                 </li>
                 <li>
                     <label htmlFor="brand">Brand</label>
                     <input type="text" name="brand" id="brand" onChange={(e) => setBrand(e.target.value)}></input>
                 </li>
                 <li>
+                    <label htmlFor="countInStock">CountInStock</label>
+                    <input type="text" name="countInStock" id="countInStock" onChange={(e) => setCountInStock(e.target.value)}></input>
+                </li>
+                <li>
                     <label htmlFor="category">Category</label>
                     <input type="text" name="category" id="category" onChange={(e) => setCategory(e.target.value)}></input>
-                </li>
-                <li>
-                    <label htmlFor="rating">Rating</label>
-                    <input type="text" name="rating" id="rating" onChange={(e) => setRating(e.target.value)}></input>
-                </li>
-                <li>
-                    <label htmlFor="numReview">Num Reviews</label>
-                    <input type="text" name="numReview" id="numReview" onChange={(e) => setNumReview(e.target.value)}></input>
                 </li>
                 <li>
                     <label htmlFor="description">Description</label>
