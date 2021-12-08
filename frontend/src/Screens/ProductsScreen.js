@@ -4,28 +4,33 @@ import { useSelector, useDispatch } from 'react-redux';
 import { signin } from '../actions/userActions';
 
 
-function SigninScreen (props) {
+function ProductsScreen (props) {
     
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const userSignin = useSelector(state => state.userSignin);
-    const { loading, userInfo, error } = userSignin;
+    const [name, setName] = useState('');
+    const [price, setPrice] = useState('');
+    const [image, setImage] = useState('');
+    const [brand, setBrand] = useState('');
+    const [category, setCategory] = useState('');
+    const [countInStock, setCountInStock] = useState('');
+    const [description, setDescription] = useState('');
+    const [rating, setRating] = useState('');
+    const [numReview, setNumReview] = useState('');
+    const productSave = useSelector(state => state.userSignin);
+    const { loading: loadingSave, success: successSave, error: errorSave } = productSave;
     const dispatch = useDispatch();
 
 
     useEffect(() => {
-        if(userInfo) {
-            props.history.push("/");
-        }
+        
 
         return () => {
             //
         };
-    }, [userInfo]);
+    }, []);
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(signin(email, password));
+        dispatch(saveProduct({ name, price, image, brand, category, countInStock, description, rating, numReview }));
     }
 
 
@@ -33,30 +38,46 @@ function SigninScreen (props) {
         <form onSubmit={submitHandler}>
             <ul className="form-container">
                 <li>
-                    <h2>Sign In</h2>
+                    <h2>Create Product</h2>
                 </li>
                 <li>
                     {loading && <div>Loading...</div>}
                     {error && <div>{error}</div>}
                 </li>
                 <li>
-                    <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}>
-                    </input>
+                    <label htmlFor="name">Name</label>
+                    <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
                 </li>
                 <li>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)}>
-                    </input>
+                    <label htmlFor="name">Price</label>
+                    <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
                 </li>
                 <li>
-                    <button type="submit" className="button primary">Sign In</button>
+                    <label htmlFor="name">Image</label>
+                    <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)}></input>
                 </li>
                 <li>
-                    Do not have an account ?. Please register !
+                    <label htmlFor="brand">Brand</label>
+                    <input type="text" name="brand" id="brand" onChange={(e) => setBrand(e.target.value)}></input>
                 </li>
                 <li>
-                    <Link to="/register" className="button secondary text-center">Create your account</Link>
+                    <label htmlFor="category">Category</label>
+                    <input type="text" name="category" id="category" onChange={(e) => setCategory(e.target.value)}></input>
+                </li>
+                <li>
+                    <label htmlFor="rating">Rating</label>
+                    <input type="text" name="rating" id="rating" onChange={(e) => setRating(e.target.value)}></input>
+                </li>
+                <li>
+                    <label htmlFor="numReview">Num Reviews</label>
+                    <input type="text" name="numReview" id="numReview" onChange={(e) => setNumReview(e.target.value)}></input>
+                </li>
+                <li>
+                    <label htmlFor="description">Description</label>
+                    <textarea name="description" id="description" onChange={(e) => setDescription(e.target.value)}></textarea>
+                </li>
+                <li>
+                    <button type="submit" className="button primary">Create</button>
                 </li>
             </ul>
         </form>
@@ -64,4 +85,4 @@ function SigninScreen (props) {
     </div>
 }
 
-export default SigninScreen;
+export default ProductsScreen;
