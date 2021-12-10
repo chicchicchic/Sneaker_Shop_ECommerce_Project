@@ -49,7 +49,7 @@ function ProductsScreen(props) {
     // Submit Create the new product
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(saveProduct({name, price, image, brand, category, countInStock, description}));
+        dispatch(saveProduct({ _id: id, name, price, image, brand, category, countInStock, description}));
     }
 
 
