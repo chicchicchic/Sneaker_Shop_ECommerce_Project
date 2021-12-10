@@ -106,7 +106,7 @@ function ProductsScreen(props) {
                             </textarea>
                         </li>
                         <li>
-                            <button type="submit" className="button primary">Create</button>
+                            <button type="submit" className="button primary">{id ? "Update" : "Create"}</button>
                         </li>
                         <li>
                             <button type="button" onClick={()=>setModalVisible(false)} className="button secondary">Back</button>
