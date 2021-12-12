@@ -26,11 +26,14 @@ function ProductsScreen(props) {
 
 
     useEffect(() => {
+        if(successSave){
+            setModalVisible(false);
+        }
         dispatch(listProducts());
         return () => {
             //
         };
-    }, []);
+    }, [successSave]);
 
     // Open the modal (Create new product Form)
     const openModal = (product) => {
@@ -117,7 +120,7 @@ function ProductsScreen(props) {
         }
 
         <div className="product-list">
-            <table>
+            <table className="table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -130,7 +133,7 @@ function ProductsScreen(props) {
                 </thead>
                 <tbody>
                     {products.map((product) => (
-                        <tr key={product._id}>
+                        <tr>
                             <td>{product._id}</td>
                             <td>{product.name}</td>
                             <td>{product.price}</td>

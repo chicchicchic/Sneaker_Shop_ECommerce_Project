@@ -31,8 +31,8 @@ router.post("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
     const productId = req.params.id;
-    const product = await product.findOne({_id: productId});
-    if(product) {
+    const product = await Product.findById(productId);
+    if(product){
         product.name = req.body.name;
         product.price = req.body.price;
         product.image = req.body.image;
@@ -42,7 +42,7 @@ router.put("/:id", async (req, res) => {
         product.description = req.body.description;
         const updatedProduct = await product.save();
         if(updatedProduct) {
-            return res.status(201).send({ message: 'roduct Updated', data: updatedProduct });
+            return res.status(200).send({ message: 'Product Updated', data: updatedProduct });
         }
     }
     return res.status(500).send({ message: 'Error in Updating Product.' });
