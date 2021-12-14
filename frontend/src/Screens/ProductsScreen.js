@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { listProducts, saveProduct } from '../actions/productActions';
+import { deleteProduct, listProducts, saveProduct } from '../actions/productActions';
 
 
 
@@ -19,9 +19,12 @@ function ProductsScreen(props) {
     // ...
     const productList = useSelector(state => state.productList);
     const { loading, products, error } = productList;
-    // Create and save the new product
+    // ...
     const productSave = useSelector(state => state.productSave);
     const { loading: loadingSave, success: successSave, error: errorSave } = productSave;
+
+    const productDelete = useSelector(state => state.productDelete);
+    const { loading: loadingDelete, success: successDelete, error: errorDelete } = productDelete;
     const dispatch = useDispatch();
 
 
@@ -53,6 +56,11 @@ function ProductsScreen(props) {
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(saveProduct({ _id: id, name, price, image, brand, category, countInStock, description}));
+    }
+
+    // Handler Delete the product
+    const deleteHandler = (product) => {
+        dispatch(deleteProduct(product._id));
     }
 
 
@@ -141,7 +149,7 @@ function ProductsScreen(props) {
                             <td>{product.brand}</td>
                             <td>
                                 <button className="button" onClick={() => openModal(product)}>Edit</button>{' '}
-                                <button className="button">Delete</button>
+                                <button className="button" onClick={() => deleteHandler(product)}>Delete</button>
                             </td>
                         </tr>
                     ))}
