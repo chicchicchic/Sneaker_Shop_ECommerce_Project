@@ -1,6 +1,6 @@
 import express from 'express';
 import Product from '../models/productModel';
-import { getToken } from '../util';
+import { isAdmin, isAuth } from '../util';
 
 
 const router = express.Router();
@@ -10,7 +10,8 @@ router.get("/", async (req, res) => {
     res.send(products);
 });
 
-router.post("/", async (req, res) => {
+// Creating Product
+router.post("/", isAuth, isAdmin, async (req, res) => {
     const product = new Product({
         name: req.body.name,
         price: req.body.price,
@@ -29,7 +30,8 @@ router.post("/", async (req, res) => {
     return res.status(500).send({ message: 'Error in Creating Product.' });
 })
 
-router.put("/:id", async (req, res) => {
+// Editing Product
+router.put("/:id", isAuth, isAdmin, async (req, res) => {
     const productId = req.params.id;
     const product = await Product.findById(productId);
     if(product){
@@ -48,5 +50,15 @@ router.put("/:id", async (req, res) => {
     return res.status(500).send({ message: 'Error in Updating Product.' });
 })
 
+// Deleting Product
+router.delete("/:id", isAuth, isAdmin, async (req, res) => {
+    const deletedProduct = await Product.findById(req.params.id);
+    if(deletedProduct) {
+        await deletedProduct.remove();
+        res.send({message: "Product Deleted"});
+    } else {
+        res.send("Error in Deletion.");
+    }
+});
 
 export default router;

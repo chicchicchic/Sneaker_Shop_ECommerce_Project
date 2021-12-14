@@ -36,7 +36,7 @@ function ProductsScreen(props) {
         return () => {
             //
         };
-    }, [successSave]);
+    }, [successSave, successDelete]);
 
     // Open the modal (Create new product Form)
     const openModal = (product) => {
@@ -67,7 +67,7 @@ function ProductsScreen(props) {
     return <div className="content content-margined">
         <div className="product-header">
             <h3>Products</h3>
-            <button onClick={() => openModal({})}>Create Product</button>
+            <button className="button primary" onClick={() => openModal({})}>Create Product</button>
         </div>
 
         {modalVisible && 
@@ -141,7 +141,7 @@ function ProductsScreen(props) {
                 </thead>
                 <tbody>
                     {products.map((product) => (
-                        <tr>
+                        <tr key={product._id}>
                             <td>{product._id}</td>
                             <td>{product.name}</td>
                             <td>{product.price}</td>
