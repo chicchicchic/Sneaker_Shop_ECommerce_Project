@@ -1,6 +1,6 @@
 import express from 'express';
 import Product from '../models/productModel';
-import { isAdmin, isAuth } from '../util';
+import { isAuth, isAdmin } from '../util';
 
 
 const router = express.Router();
@@ -8,6 +8,16 @@ const router = express.Router();
 router.get("/", async (req, res) => {
     const products = await Product.find({});
     res.send(products);
+});
+
+// Xem được thông tin chi tiết sản phẩm mà mình Created/Edited Product trong phần "Manage Products (React Modal)", click vào các Product ở HomePage sẽ xem được thông tin của sản phẩm ta vừa click
+router.get("/:id", async (req, res) => {
+    const product = await Product.findOne({_id: req.params.id});
+    if(product) {
+        res.send(product);
+    } else {
+        res.status(404).send({ message: "Product Not Found" });
+    }
 });
 
 // Creating Product
