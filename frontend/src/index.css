@@ -357,3 +357,12 @@ th {
 tbody>tr:nth-child(odd) {
   background-color: #f0f0f0;
 }
+
+
+/* Checkout Steps */
+.checkout-steps {
+  display: flex;
+  justify-content: space-between;
+  width: 40rem;
+  margin: 1rem auto;
+}
