@@ -1,6 +1,6 @@
 import Axios from "axios";
 // import Cookies from "js-cookie";
-import { CART_ADD_ITEM, CART_REMOVE_ITEM, CART_SAVE_SHIPPING } from "../constants/cartConstants";
+import { CART_ADD_ITEM, CART_REMOVE_ITEM, CART_SAVE_PAYMENT, CART_SAVE_SHIPPING } from "../constants/cartConstants";
 
 // Nếu muốn lưu với Cookie (Server Side)
 const Cookies = require('js-cookie');
@@ -50,4 +50,9 @@ const saveShipping = (data) => (dispatch) => {
     dispatch({ type: CART_SAVE_SHIPPING, payload: data });
 }
 
-export { addToCart, removeFromCart, saveShipping }
+// Save payment
+const savePayment = (data) => (dispatch) => {
+    dispatch({ type: CART_SAVE_PAYMENT, payload: data });
+}
+
+export { addToCart, removeFromCart, saveShipping, savePayment }
