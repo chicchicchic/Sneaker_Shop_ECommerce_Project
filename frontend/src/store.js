@@ -10,7 +10,7 @@ const Cookies = require('js-cookie');
 
 // Nếu muốn lưu với Cookie (Server Side)
 const initialState = { 
-    cart: { cartItems: Cookies.get('cartItems')? JSON.parse(Cookies.get('cartItems')) : [] },
+    cart: { cartItems: Cookies.get('cartItems')? JSON.parse(Cookies.get('cartItems')) : [], shipping: {}, payment: {} },
     userSignin: { userInfo: Cookies.get('userInfo')? JSON.parse(Cookies.get('userInfo')) : null },
  };
 
