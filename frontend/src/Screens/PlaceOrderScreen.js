@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { addToCart, removeFromCart } from "../actions/cartActions";
 import { useDispatch, useSelector } from 'react-redux';
+import CheckoutSteps from '../components/CheckoutSteps';
 
 
 function PlaceOrderScreen(props) {
@@ -10,7 +11,7 @@ function PlaceOrderScreen(props) {
 
     const { cartItems, shipping, payment } = cart;
     if(!shipping){
-        props.location.push("/shipping");
+        props.history.push("/shipping");
     }
     if(!payment){
         props.location.push("/payment");
@@ -18,14 +19,10 @@ function PlaceOrderScreen(props) {
 
     
     const dispatch = useDispatch();
-    const removeFromCartHandler = (productId) => {
-        dispatch(removeFromCart(productId));
-    }
+    
 
     useEffect(() => {
-        if(productId){
-            dispatch(addToCart(productId, quantity));
-        }
+        
     }, [])
 
     const checkoutHandler = () => {
@@ -76,15 +73,7 @@ function PlaceOrderScreen(props) {
                                             </Link>
                                         </div>
                                         <div>
-                                            Quantity:
-                                            <select value={item.quantity} onChange={(e) => dispatch(addToCart(item.product, e.target.value))}>
-                                                {[...Array(item.countInStock).keys()].map(x => 
-                                                    <option key={x+1} value={x+1}>{x+1}</option>    
-                                                )}
-                                            </select>
-                                            <button type="button" className="button" onClick={() => removeFromCartHandler(item.product)} >
-                                                Delete
-                                            </button>
+                                            Quantity: {item.quantity}
                                         </div>
                                     </div>
                                     <div className="cart-price">
